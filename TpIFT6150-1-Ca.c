@@ -55,13 +55,6 @@ int main(int argc,char **argv)
           MatriceImgI[i][j]=0.0;
       }
 
-  float sum = 0;
-  for(i=0; i<length; i++)
-      for(j=0; j<width; j++)
-          sum += MatriceImgR[i][j];
-
-  printf("%lf\n", sum);
-
   SaveImagePgm("image-TpIFT6150-1-Ca_square", MatriceImgR_ref,length,width);
   
   /*FFT*/
@@ -78,6 +71,7 @@ int main(int argc,char **argv)
           MatriceImgI[i][j] = 2 * reel * imaginaire;
       }
 
+  // Recentre l'image réelle après IFFTDD
   PreFFT_Translation(MatriceImgR, length, width);
   
   IFFTDD(MatriceImgR, MatriceImgI, length, width);
