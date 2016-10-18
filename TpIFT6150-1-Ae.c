@@ -47,7 +47,8 @@ int main(int argc,char **argv)
   for(i=0;i<length;i++)
       for(j=0;j<width;j++) {
           
-          if(i > 2 * length/5.0 && i < 3 * length / 5.0 && j > 2 * width/5.0 && j < 3 * width / 5.0) {
+          if(i > length/2.0 - taille/2.0 && i < length/2.0 + taille/2.0 &&
+             j > width/2.0 - taille/2.0 && j < width/2.0 + taille/2.0) {
               MatriceImgR[i][j] = 1.0;
               MatriceImgR_ref[i][j] = 255.0;
           } else {
@@ -58,7 +59,7 @@ int main(int argc,char **argv)
           MatriceImgI[i][j]=0.0;
           MatriceImgM[i][j]=0.0;
       }
-
+  
   SaveImagePgm("image-TpIFT6150-1-Ae-img",MatriceImgR_ref,length,width);
 
   PreFFT_Translation(MatriceImgR, length, width);

@@ -54,10 +54,10 @@ dans l'énoncé du TP1:
 
 et calculer la phase demandée pour la question Af.
 
-Pour la question Ac, on doit pouvoir spécifier l'image en argument du programme.
-Pour la question Ae, on doit pouvoir entrer la taille du carré au clavier.
-Pour la question Ca, on doit pouvoir entrer la taille du carré au clavier.
-Pour la question Cb, on doit pouvoir spécifier la taille du masque au clavier.
+[x] Pour la question Ac, on doit pouvoir spécifier l'image en argument du programme.
+[x] Pour la question Ae, on doit pouvoir entrer la taille du carré au clavier.
+[x] Pour la question Ca, on doit pouvoir entrer la taille du carré au clavier.
+[ ] Pour la question Cb, on doit pouvoir spécifier la taille du masque au clavier.
 
 Nota: Pour entrer un entier au clavier, vous pouvez utiliser la
 commande C   scanf("%d",&size); qui rentrera au clavier le nombre

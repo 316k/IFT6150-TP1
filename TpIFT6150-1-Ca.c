@@ -39,11 +39,16 @@ int main(int argc,char **argv)
   MatriceImgI = fmatrix_allocate_2d(length,width);
   MatriceImgMod = fmatrix_allocate_2d(length,width);
 
+  int taille = 0;
+  printf("Entrez la taille du carré : ");
+  scanf("%d", &taille);
+
   /*Initialisation des matrices */
   for(i=0;i<length;i++)
       for(j=0;j<width;j++) {
           
-          if(i > 2 * length/5.0 && i < 3 * length / 5.0 && j > 2 * width/5.0 && j < 3 * width / 5.0) {
+          if(i > length/2.0 - taille/2.0 && i < length/2.0 + taille/2.0 &&
+             j > width/2.0 - taille/2.0 && j < width/2.0 + taille/2.0) {
               MatriceImgR[i][j] = 1/(length/5.0 * width/5.0);
               MatriceImgR_ref[i][j] = 255.0;
           } else {

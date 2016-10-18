@@ -42,13 +42,17 @@ int main(int argc, char **argv)
   MatriceImgM = fmatrix_allocate_2d(length,width);
   MatriceImgPhase = fmatrix_allocate_2d(length,width);
 
-  float decalage = atof(argv[1]);
+
+  int taille = 40;
+  int decalage;
+  printf("Entrez le décalage en y du carré : ");
+  scanf("%d", &decalage);
   
   /*Initialisation a zero de toutes les matrices */
   for(i=0;i<length;i++)
       for(j=0;j<width;j++) {
           
-          if(i > decalage * length/5.0 && i < (1 + decalage) * length / 5.0 && j > 2.0 * width/5.0 && j < 3.0 * width / 5.0) {
+          if(i > decalage && i < decalage + taille && j > width/2.0 - taille/2.0 && j < width/2.0 + taille/2.0) {
               MatriceImgR[i][j] = 1.0;
               MatriceImgR_ref[i][j] = 255.0;
           } else {
@@ -71,7 +75,7 @@ int main(int argc, char **argv)
   /*Module*/
   Mod(MatriceImgM,MatriceImgR,MatriceImgI,length,width);
   Phase(MatriceImgPhase,MatriceImgR,MatriceImgI,length,width);
-  printf("%lf\n", MatriceImgPhase[9][9]);
+  printf("Valeur de la phase au point (9, 9) : %lf\n", MatriceImgPhase[9][9]);
   
   for(i=0; i<length; i++)
       for(j=0; j<width; j++)
