@@ -20,7 +20,7 @@
 /*------------------------------------------------*/
 /* DEFINITIONS -----------------------------------*/
 /*------------------------------------------------*/
-#define NAME_IMG_IN  "image-TpIFT6150-1-Da"
+#define NAME_IMG_IN  "image-TpIFT6150-1-Ab"
 
 #define NAME_IMG_OUT "out"
 
@@ -70,7 +70,7 @@ int main(int argc,char **argv)
   free_fmatrix_2d(MatriceImgI);
   free_fmatrix_2d(MatriceImgM);
 
-  /*Commande systeme: visualisation de Ingout.pgm*/
+  /*Commande systeme: visualisation de Imgout.pgm*/
   system("display image-TpIFT6150-1-Ab.pgm&");
 
   /*retour sans probleme*/
