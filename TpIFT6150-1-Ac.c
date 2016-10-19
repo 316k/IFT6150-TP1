@@ -1,7 +1,7 @@
 /*------------------------------------------------------*/
-/* Prog    : TpIFT6150-1-Aa.c                           */
-/* Auteur  : Nicolas Hurtubise                          */
-/* Date    : 01/09/2016                                 */
+/* Prog    : TpIFT6150-1-Ac.c                           */
+/* Auteurs : Nicolas Hurtubise, Mercedes Gauthier       */
+/* Date    : 18/10/2016                                 */
 /* version : 1                                          */
 /* langage : C                                          */
 /* labo    : DIRO                                       */
