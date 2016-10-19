@@ -45,37 +45,47 @@ int main(int argc, char **argv)
 
   int taille = 40;
   int decalage;
-  printf("Entrez le décalage en y du carré : ");
-  scanf("%d", &decalage);
-  
-  /*Initialisation a zero de toutes les matrices */
-  for(i=0;i<length;i++)
-      for(j=0;j<width;j++) {
-          
-          if(i > decalage && i < decalage + taille && j > width/2.0 - taille/2.0 && j < width/2.0 + taille/2.0) {
-              MatriceImgR[i][j] = 1.0;
-              MatriceImgR_ref[i][j] = 255.0;
-          } else {
-              MatriceImgR[i][j] = 0.0;
-              MatriceImgR_ref[i][j] = 0.0;
-          }
+  for(k=0; k<2; k++) {
 
-          MatriceImgI[i][j]=0.0;
-          MatriceImgM[i][j]=0.0;
-          MatriceImgPhase[i][j] = 0.0;
+      if(k == 0) {
+          decalage = 0;
+      } else {
+          printf("Entrez la translation en y du carré : ");
+          scanf("%d", &decalage);
       }
-
-  SaveImagePgm("image-TpIFT6150-1-Af-img",MatriceImgR_ref,length,width);
-
-  PreFFT_Translation(MatriceImgR, length, width);
   
-  /*FFT*/
-  FFTDD(MatriceImgR,MatriceImgI,length,width);
+      /*Initialisation a zero de toutes les matrices */
+      for(i=0;i<length;i++)
+          for(j=0;j<width;j++) {
+          
+              if(i > decalage && i < decalage + taille && j > width/2.0 - taille/2.0 && j < width/2.0 + taille/2.0) {
+                  MatriceImgR[i][j] = 1.0;
+                  MatriceImgR_ref[i][j] = 255.0;
+              } else {
+                  MatriceImgR[i][j] = 0.0;
+                  MatriceImgR_ref[i][j] = 0.0;
+              }
 
-  /*Module*/
-  Mod(MatriceImgM,MatriceImgR,MatriceImgI,length,width);
-  Phase(MatriceImgPhase,MatriceImgR,MatriceImgI,length,width);
-  printf("Valeur de la phase au point (9, 9) : %lf\n", MatriceImgPhase[9][9]);
+              MatriceImgI[i][j]=0.0;
+              MatriceImgM[i][j]=0.0;
+              MatriceImgPhase[i][j] = 0.0;
+          }
+      
+      SaveImagePgm("image-TpIFT6150-1-Af-img",MatriceImgR_ref,length,width);
+      
+      PreFFT_Translation(MatriceImgR, length, width);
+      
+      /*FFT*/
+      FFTDD(MatriceImgR,MatriceImgI,length,width);
+      
+      /*Module*/
+      Mod(MatriceImgM,MatriceImgR,MatriceImgI,length,width);
+      Phase(MatriceImgPhase,MatriceImgR,MatriceImgI,length,width);
+
+      printf("Translation en y = %d\n", decalage);
+      printf("Valeur du module au point (9, 9) : %lf\n", MatriceImgM[9][9]);
+      printf("Valeur de la phase au point (9, 9) : %lf\n\n", MatriceImgPhase[9][9]);
+  }
   
   for(i=0; i<length; i++)
       for(j=0; j<width; j++)

@@ -26,7 +26,7 @@ int wrapped_coord(int i, int len);
 
 int main(int argc,char **argv)
  {
-  int i, j, k, l, x, y;
+  int i, j, x, y;
   int length, width;
   float** MatriceImgBriquesR;
   float** MatriceImgBriquesI;
